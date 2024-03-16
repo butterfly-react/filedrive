@@ -6,5 +6,5 @@ import { v } from "convex/values";
 export const roles = v.union(v.literal("admin"), v.literal("member"));
 
 export default defineSchema({
-  files: defineTable({ name: v.string() })
+  files: defineTable({ name: v.string(), orgId: v.optional(v.string()) }).index('by_orgId', ['orgId'])
 });
